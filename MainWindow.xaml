@@ -1,0 +1,99 @@
+<Window x:Class="Windows11Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{x:Static properties:Strings.AppTitle}" Height="560" Width="380"
+        WindowStartupLocation="CenterScreen"
+        xmlns:properties="clr-namespace:Windows11Calculator.Properties"
+        KeyDown="Window_KeyDown">
+    <DockPanel LastChildFill="True">
+        <!-- Top bar -->
+        <Grid DockPanel.Dock="Top" Margin="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{x:Static properties:Strings.StandardCalculator}" FontSize="18" VerticalAlignment="Center"/>
+            <!-- Language picker -->
+            <ComboBox Grid.Column="1" Width="120" SelectionChanged="Language_SelectionChanged" x:Name="LangCombo">
+                <ComboBoxItem Tag="en-US" Content="English"/>
+                <ComboBoxItem Tag="ru-RU" Content="Русский"/>
+                <ComboBoxItem Tag="tk-TM" Content="Türkmen"/>
+            </ComboBox>
+        </Grid>
+
+        <!-- Display -->
+        <TextBox x:Name="Display" Style="{StaticResource DisplayBox}" Text="0"/>
+
+        <!-- Memory row -->
+        <UniformGrid Rows="1" Columns="5" Margin="12,0,12,6">
+            <Button Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.MC}" Click="MC_Click"/>
+            <Button Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.MR}" Click="MR_Click"/>
+            <Button Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.MPlus}" Click="MPlus_Click"/>
+            <Button Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.MMinus}" Click="MMinus_Click"/>
+            <Button Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.MS}" Click="MS_Click"/>
+        </UniformGrid>
+
+        <!-- Buttons grid -->
+        <Grid Margin="12">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Row 1 -->
+            <Button Grid.Row="0" Grid.Column="0" Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.Percent}" Click="Op_Click"/>
+            <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.Sqrt}" Click="Sqrt_Click"/>
+            <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.Square}" Click="Square_Click"/>
+            <Button Grid.Row="0" Grid.Column="3" Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.Inverse}" Click="Inverse_Click"/>
+
+            <!-- Row 2 -->
+            <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.CE}" Click="CE_Click"/>
+            <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.C}" Click="C_Click"/>
+            <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource OpButton}" Content="{x:Static properties:Strings.Back}" Click="Backspace_Click"/>
+            <Button Grid.Row="1" Grid.Column="3" Style="{StaticResource OpButton}" Content="÷" Click="Op_Click"/>
+
+            <!-- Row 3 -->
+            <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource CalcButton}" Content="7" Click="Digit_Click"/>
+            <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource CalcButton}" Content="8" Click="Digit_Click"/>
+            <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource CalcButton}" Content="9" Click="Digit_Click"/>
+            <Button Grid.Row="2" Grid.Column="3" Style="{StaticResource OpButton}" Content="×" Click="Op_Click"/>
+
+            <!-- Row 4 -->
+            <Button Grid.Row="3" Grid.Column="0" Style="{StaticResource CalcButton}" Content="4" Click="Digit_Click"/>
+            <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource CalcButton}" Content="5" Click="Digit_Click"/>
+            <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource CalcButton}" Content="6" Click="Digit_Click"/>
+            <Button Grid.Row="3" Grid.Column="3" Style="{StaticResource OpButton}" Content="−" Click="Op_Click"/>
+
+            <!-- Row 5 -->
+            <Button Grid.Row="4" Grid.Column="0" Style="{StaticResource CalcButton}" Content="1" Click="Digit_Click"/>
+            <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource CalcButton}" Content="2" Click="Digit_Click"/>
+            <Button Grid.Row="4" Grid.Column="2" Style="{StaticResource CalcButton}" Content="3" Click="Digit_Click"/>
+            <Button Grid.Row="4" Grid.Column="3" Style="{StaticResource OpButton}" Content="+" Click="Op_Click"/>
+
+        </Grid>
+
+        <!-- Bottom row separate to span full width -->
+        <Grid Margin="12,0,12,12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Style="{StaticResource CalcButton}" Content="±" Click="Negate_Click"/>
+            <Button Grid.Column="1" Style="{StaticResource CalcButton}" Content="0" Click="Digit_Click"/>
+            <Button Grid.Column="2" Style="{StaticResource CalcButton}" Content="." Click="Decimal_Click"/>
+            <Button Grid.Column="3" Style="{StaticResource EqualsButton}" Content="=" Click="Equals_Click"/>
+        </Grid>
+    </DockPanel>
+</Window>

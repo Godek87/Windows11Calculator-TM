@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><root>
+  <data name="AppTitle" xml:space="preserve"><value>Калькулятор</value></data>
+  <data name="StandardCalculator" xml:space="preserve"><value>Обычный</value></data>
+  <data name="MC" xml:space="preserve"><value>MC</value></data>
+  <data name="MR" xml:space="preserve"><value>MR</value></data>
+  <data name="MPlus" xml:space="preserve"><value>M+</value></data>
+  <data name="MMinus" xml:space="preserve"><value>M-</value></data>
+  <data name="MS" xml:space="preserve"><value>MS</value></data>
+  <data name="Percent" xml:space="preserve"><value>%</value></data>
+  <data name="Sqrt" xml:space="preserve"><value>√</value></data>
+  <data name="Square" xml:space="preserve"><value>x²</value></data>
+  <data name="Inverse" xml:space="preserve"><value>1/x</value></data>
+  <data name="CE" xml:space="preserve"><value>CE</value></data>
+  <data name="C" xml:space="preserve"><value>C</value></data>
+  <data name="Back" xml:space="preserve"><value>⌫</value></data>
+</root>
