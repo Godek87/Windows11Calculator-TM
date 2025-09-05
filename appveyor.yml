@@ -1,0 +1,11 @@
+version: 1.0.{build}
+image: Visual Studio 2022
+
+build_script:
+  - cmd: dotnet restore Windows11Calculator-TM.sln
+  - cmd: dotnet build Windows11Calculator-TM.sln -c Release --no-restore
+  - cmd: dotnet publish Windows11Calculator-TM.sln -c Release -o out
+
+artifacts:
+  - path: out\**
+    name: Windows11Calculator
